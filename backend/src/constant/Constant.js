@@ -1,0 +1,5 @@
+module.exports = Object.freeze({
+    LIMIT_NEGATIVE_EVALUATION: 5,
+    LIMIT_NEUTRAL_EVALUATION: 8,
+    LIMIT_POSITIVE_EVALUATION: 10
+});
