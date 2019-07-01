@@ -32,7 +32,7 @@ module.exports = {
             }
 
             await sharp(req.file.path)
-                .resize(200, 200)
+                .resize(220, 200)
                 .jpeg({ quality: 70 })
                 .toFile(path.resolve(req.file.destination, 'resized', req.file.filename));
 
@@ -90,7 +90,6 @@ module.exports = {
                 }
             );
         } catch (error) {
-            console.log(error);
             return res.status(500).send(error);
         }
     },

@@ -12,10 +12,10 @@ module.exports = {
 
     async save(req, res) {
         try {
-            const id_book = req.params.id_book;
+            const idBook = req.params.id_book;
             const { note, comment } = req.body;
 
-            if (!id_book) {
+            if (!idBook) {
                 return res.status(400).send("Parâmetros não informados!");
             }
 
@@ -23,13 +23,13 @@ module.exports = {
                 return res.status(400).send("Por favor informe os dados corretamente!")
             }
 
-            const evaluation = new Evaluation({ id_book, note, comment });
+            const evaluation = new Evaluation({ idBook, note, comment });
 
             evaluation.save((err, obj) => {
                 if (err) { return res.status(500).send("Erro ao salvar avaliação para o livro!"); }
             });
 
-            const book = await Book.findById(id_book);
+            const book = await Book.findById(idBook);
 
             const sum_evaluation = parseInt(book.evaluation_average) * parseInt(book.evaluation_number);
 
